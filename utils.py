@@ -81,7 +81,7 @@ def save_images(filename, outputs, inputs=None, gt=None, is_colormap=True, is_re
     im = Image.fromarray(np.uint8(montage*255))
     im.save(filename)
 
-def load_test_data(test_data_zip_file='nyu_test.zip'):
+def load_test_data(test_data_zip_file='/content/gdrive/My Drive/Colab Notebooks/nyu_data.zip'):
     print('Loading test data...', end='')
     import numpy as np
     from data import extract_zip
