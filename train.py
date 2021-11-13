@@ -9,8 +9,8 @@ from data import get_nyu_train_test_data, get_unreal_train_test_data
 from callbacks import get_nyu_callbacks
 
 from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.utils import multi_gpu_model
-from tensorflow.keras.utils.vis_utils import plot_model
+from keras.utils import multi_gpu_model
+from keras.utils.vis_utils import plot_model
 
 # Argument Parser
 parser = argparse.ArgumentParser(description='High Quality Monocular Depth Estimation via Transfer Learning')
