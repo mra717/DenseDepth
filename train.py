@@ -9,7 +9,7 @@ from data import get_nyu_train_test_data, get_unreal_train_test_data
 from callbacks import get_nyu_callbacks
 
 from tensorflow.keras.optimizers import Adam
-from keras.utils import multi_gpu_model
+#from keras.utils import multi_gpu_model
 from keras.utils.vis_utils import plot_model
 
 # Argument Parser
@@ -66,7 +66,7 @@ if True:
 
 # Multi-gpu setup:
 basemodel = model
-if args.gpus > 1: model = multi_gpu_model(model, gpus=args.gpus)
+#if args.gpus > 1: model = multi_gpu_model(model, gpus=args.gpus)
 
 # Optimizer
 optimizer = Adam(lr=args.lr, amsgrad=True)
