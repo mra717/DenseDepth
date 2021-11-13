@@ -3,6 +3,7 @@ from utils import DepthNorm
 from io import BytesIO
 from PIL import Image
 from zipfile import ZipFile
+from os import path
 from tensorflow.keras.utils import Sequence
 from augment import BasicPolicy
 
@@ -14,7 +15,8 @@ def nyu_resize(img, resolution=480, padding=6):
     from skimage.transform import resize
     return resize(img, (resolution, int(resolution*4/3)), preserve_range=True, mode='reflect', anti_aliasing=True )
 
-def get_nyu_data(batch_size, nyu_data_zipfile='Desktop\nyu_data.zip'):
+def get_nyu_data(batch_size):
+    nyu_data_zipfile = path.expanduser("~/Desktop/nyu_data.zip")
     data = extract_zip(nyu_data_zipfile)
 
     nyu2_train = list((row.split(',') for row in (data['data/nyu2_train.csv']).decode("utf-8").split('\n') if len(row) > 0))
