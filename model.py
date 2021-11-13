@@ -1,6 +1,6 @@
 import sys
 
-from keras import applications
+from keras.applications.densenet import DenseNet201, DenseNet121, DenseNet169 
 from keras.models import Model, load_model
 from keras.layers import Input, InputLayer, Conv2D, Activation, LeakyReLU, Concatenate
 from layers import BilinearUpSampling2D
@@ -13,11 +13,11 @@ def create_model(existing='', is_twohundred=False, is_halffeatures=True, is121 =
 
         # Encoder Layers
         if is_twohundred:
-            base_model = applications.DenseNet201(input_shape=(None, None, 3), include_top=False, weights = 'imagenet') #whether to include fc at the top
+            base_model = DenseNet201(input_shape=(None, None, 3), include_top=False, weights = 'imagenet') #whether to include fc at the top
         if is121:
-            base_model = applications.DenseNet121(input_shape=(None, None, 3), include_top=False, weights='imagenet')
+            base_model = DenseNet121(input_shape=(None, None, 3), include_top=False, weights='imagenet')
         else:
-            base_model = applications.DenseNet169(input_shape=(None, None, 3), include_top=False, weights = 'imagenet')
+            base_model = DenseNet169(input_shape=(None, None, 3), include_top=False, weights = 'imagenet')
 
         print('Base model loaded.')
 
